@@ -1,0 +1,27 @@
+{
+    "bot": {
+        "token": "NjkwNTIxNzU4NTQwNzU5MTAw.XnSogA.0VNkKTPou85B6GvNvEGhamjuBcE",
+        "link": "https://discord.com/oauth2/authorize?client_id={{BOT_ID}}&permissions=8&scope=applications.commands%20bot",
+        "status": "Disponível",
+        "intents": [ 1, 512, 4096, 16 ],
+        "delete": true
+    },
+    "guild": "723830053674418257",
+    "ticket": {
+        "canal": "774013584937713705",
+        "categoria": "727123490599206953",
+        "manager_role": "723831046046744636",
+        "logs": "774013584937713705",
+        "questions": [
+            {
+                "q": "Let's keep it simple?", "a": ["Sure", "No"]
+            },
+            {
+                "q": "One more question?", "a": ["No", "Nope"]
+            }
+        ]
+    },
+    "mongo": {
+        "url": "mongodb+srv://copelaw651:copelaw651@cluster.vdrjj.mongodb.net/tickets?retryWrites=true&w=majority"
+    }
+}
