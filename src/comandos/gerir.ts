@@ -35,7 +35,29 @@ export const guild = true
 
 import { Run } from '../interfaces/comando'
 
+import {TicketsModel} from '../models/tickets'
+
 
 export const run: Run = async (bot, interaction) => {
+    let canal = interaction.channel
+    let sub = interaction.options._subcommand
+    let opt = interaction.options._hoistedOptions
+
+    let Ticket = await TicketsModel.findOne({canal: canal.id, closed: false});
+    if(!Ticket) return interaction.reply({content: 'Este canal não é um ticket.', ephemeral: true})
+    
+    let _u = opt[0]
+    let user = _u.value
+
+    switch(sub) {
+        case 'add':
+            canal.permissionOverwrites.create(user, { VIEW_CHANNEL: true, SEND_MESSAGES: true, READ_MESSAGE_HISTORY: true });
+            return interaction.reply(`${_u.user.username} foi adicionado ao ticket.`)
+            break;
+        case 'remove':
+            canal.permissionOverwrites.delete(user);
+            return interaction.reply(`${_u.user.username} foi removido do ticket.`)
+            break;
+    }
 
 }
